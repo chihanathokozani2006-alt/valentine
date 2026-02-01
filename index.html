@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just One Question ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff5f6d, #ffc371);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        animation: fadeIn 1.5s ease;
+        max-width: 90%;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    p {
+        margin-bottom: 25px;
+        font-size: 1.1em;
+    }
+
+    .buttons {
+        position: relative;
+        height: 80px;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 1em;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    #yesBtn {
+        background: #ff2d55;
+        color: white;
+        left: 50%;
+        transform: translateX(-120%);
+    }
+
+    #noBtn {
+        background: white;
+        color: #ff2d55;
+        left: 50%;
+        transform: translateX(20%);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+        100% { transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+    <h1>Will you be my Valentine? 💘</h1>
+    <p>I promise smiles, laughs, and bad jokes 😌</p>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="yes()">YES 😍</button>
+        <button id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">NO 😅</button>
+    </div>
+</div>
+
+<script>
+function runAway() {
+    const noBtn = document.getElementById("noBtn");
+
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function yes() {
+    document.getElementById("card").innerHTML = `
+        <h1>Yesssss!!! 🥰❤️</h1>
+        <p>
+            I knew it 😌<br>
+            Get ready for the best Valentine ever 🌹
+        </p>
+    `;
+}
+</script>
+
+</body>
+</html>
